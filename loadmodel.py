@@ -1,0 +1,46 @@
+import gymnasium as gym
+from stable_baselines3 import PPO
+from stable_baselines3.common.vec_env import DummyVecEnv
+from stable_baselines3.common.evaluation import evaluate_policy
+from stable_baselines3.common.env_util import make_atari_env
+import os
+
+""" env = gym.make("ALE/Assault-v5", render_mode="human")
+
+PPO_Path = os.path.join('Training', 'Saved Models', 'PPO_Model_Assault_2')
+
+model = PPO.load(PPO_Path, env=env)
+
+res = evaluate_policy(model, env, n_eval_episodes=10, render=True)
+
+print(f"Result: {res}") """
+
+
+
+n_showcase_episodes = 3
+
+for episode in range(n_showcase_episodes):
+    print(f"starting episode {episode}...")
+
+    env = gym.make("ALE/Assault-v5", render_mode="human")
+    
+    PPO_Path = os.path.join('Training', 'Saved Models', 'PPO_Model_Assault_2')
+    
+    state, info = env.reset(seed=0)
+
+    model = PPO.load(PPO_Path, env=env)
+
+    # get an initial state
+
+    # play one episode
+    done = False
+    score = 0
+    while not done:
+        action, _states = model.predict(state) # agent policy that uses the observation and info
+        observation, reward, terminated, truncated, info = env.step(action)
+        score += reward
+        print('Episode: {} Score: {}'. format(episode, score))
+        
+        done = terminated or truncated
+
+env.close()
