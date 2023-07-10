@@ -11,5 +11,11 @@ Old Logs:
 New Logs:
     Log: A2C_1 - A2C_LR_06_500k
     Log: A2C_2 - A2C_LR_08_500k
-    Log: A2C_3 - A2C_LR_1_500k
-    Log: A2C_4 - A2C_LR_09_500k
+    Log: A2C_3 - LR_1_500k
+    Log: A2C_4 - LR_09_500k
+    Log: A2C_5 - LR_065_1M
+    Log: A2C_6 - LR_05_G98_1M
+    Log: A2C_7 - LR_05_EC01_500k
+    Log: A2C_8 - LR0008_1M
+
+    Log: PPO_1 - PPO_LR00025_1M

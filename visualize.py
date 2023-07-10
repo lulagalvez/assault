@@ -11,9 +11,9 @@ import time
 env = make_atari_env("ALE/Assault-v5", n_envs=1, seed=0)
 env = VecFrameStack(env, n_stack=4)
 
-a2c_path = os.path.join('Training', 'Saved Models','old', 'A2C_400k')
+a2c_path = os.path.join('Training', 'Saved Models','a2c', 'LR_05_G98_1M')
 
-model = PPO.load(a2c_path, env)
+model = A2C.load(a2c_path, env)
 
 obs = env.reset()
 while True:

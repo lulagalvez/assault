@@ -1,15 +1,48 @@
 A2C_LR_06_500k:
+    Steps: 500.000
     Learning Rate: 0.0006
     Result: (1371.5, 888.3979119741333)
 
 A2C_LR_08_500k:
+    Steps: 500.000
     Learning Rate: 0.0008
     Result: (1531.0, 695.093806618934)
 
 LR_1_500k:
+    Steps: 500.000
     Learning Rate: 0.001
     Result: (872.3, 376.552267288354)
 
 LR_09_500k:
+    Steps: 500.000
     Learning Rate: 0.009
+    Result: (438.9, 114.42591489693233)
+
+LR_065_1M:
+    Steps: 1.000.000
+    Learning Rate: 0.00065
+    Result: (1716.7, 882.2800065738768)
+
+LR_05_G98_1M:
+    Steps: 1.000.000
+    Learning Rate: 0.0005
+    Gamma: 0.98
+    Result: (622.3, 171.7160737962524)
+
+LR_05_EC01_500k
+    Steps: 500.000
+    Learning Rate: 0.0007
+    Gamma: 0.99
+    Entropy COefficient: 0.1
+    Result: (1535.9, 757.4622696874084)
+
+LR0008_1M:
+    Steps: 1.000.000
+    Learning Rate: 0.0007
+    Gamma: 0.99
+    Entropy COefficient: 0.0
+    Result: (1679.4, 1146.5247664137046)
+
+PPO_LR00025_1M:
+    
     
