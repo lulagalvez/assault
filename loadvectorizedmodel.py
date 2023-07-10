@@ -9,9 +9,9 @@ import os
 env = make_atari_env("ALE/Assault-v5", n_envs=1, seed=0)
 env = VecFrameStack(env, n_stack=4)
 
-PPO_Path = os.path.join('Training', 'Saved Models', 'PPO_400k')
+PPO_Path = os.path.join('Training', 'Saved Models', 'old', 'A2C_400k')
 
-model = PPO.load(PPO_Path, env=env)
+model = A2C.load(PPO_Path, env=env)
 
 res = evaluate_policy(model, env, n_eval_episodes=10, render=True)
 

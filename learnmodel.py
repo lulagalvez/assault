@@ -11,8 +11,8 @@ env = gym.make("ALE/Assault-v5", render_mode="human")
 
 model = PPO('CnnPolicy', env, verbose=1, tensorboard_log=log_path)
 
-model.learn(total_timesteps=100000) 
+model.learn(total_timesteps=1000) 
 
-PPO_Path = os.path.join('Training', 'Saved Models', 'PPO_Model_Assault_2')
+PPO_Path = os.path.join('Training', 'Saved Models', 'test_run')
 
 model.save(PPO_Path)

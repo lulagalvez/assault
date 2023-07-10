@@ -1,21 +1,9 @@
 import gymnasium as gym
 from stable_baselines3 import PPO
-from stable_baselines3.common.vec_env import DummyVecEnv
+from stable_baselines3.common.vec_env import VecFrameStack
 from stable_baselines3.common.evaluation import evaluate_policy
 from stable_baselines3.common.env_util import make_atari_env
 import os
-
-""" env = gym.make("ALE/Assault-v5", render_mode="human")
-
-PPO_Path = os.path.join('Training', 'Saved Models', 'PPO_Model_Assault_2')
-
-model = PPO.load(PPO_Path, env=env)
-
-res = evaluate_policy(model, env, n_eval_episodes=10, render=True)
-
-print(f"Result: {res}") """
-
-
 
 n_showcase_episodes = 3
 
@@ -23,8 +11,12 @@ for episode in range(n_showcase_episodes):
     print(f"starting episode {episode}...")
 
     env = gym.make("ALE/Assault-v5", render_mode="human")
+
+    env = VecFrameStack(env, n_stack=4)
+
+    print(env.observation_space)
     
-    PPO_Path = os.path.join('Training', 'Saved Models', 'PPO_Model_Assault_2')
+    PPO_Path = os.path.join('Training', 'Saved Models','old', 'test_run')
     
     state, info = env.reset(seed=0)
 
