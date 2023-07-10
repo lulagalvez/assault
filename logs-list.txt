@@ -11,3 +11,5 @@ Old Logs:
 New Logs:
     Log: A2C_1 - A2C_LR_06_500k
     Log: A2C_2 - A2C_LR_08_500k
+    Log: A2C_3 - A2C_LR_1_500k
+    Log: A2C_4 - A2C_LR_09_500k

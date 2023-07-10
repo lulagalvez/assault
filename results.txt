@@ -1,0 +1,15 @@
+A2C_LR_06_500k:
+    Learning Rate: 0.0006
+    Result: (1371.5, 888.3979119741333)
+
+A2C_LR_08_500k:
+    Learning Rate: 0.0008
+    Result: (1531.0, 695.093806618934)
+
+LR_1_500k:
+    Learning Rate: 0.001
+    Result: (872.3, 376.552267288354)
+
+LR_09_500k:
+    Learning Rate: 0.009
+    

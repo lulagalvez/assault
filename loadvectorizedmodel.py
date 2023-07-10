@@ -6,10 +6,12 @@ from stable_baselines3.common.evaluation import evaluate_policy
 from stable_baselines3.common.env_util import make_atari_env
 import os
 
+model_name = input("Enter name of model: ")
+
 env = make_atari_env("ALE/Assault-v5", n_envs=1, seed=0)
 env = VecFrameStack(env, n_stack=4)
 
-PPO_Path = os.path.join('Training', 'Saved Models', 'old', 'A2C_400k')
+PPO_Path = os.path.join('Training', 'Saved Models', 'a2c', model_name)
 
 model = A2C.load(PPO_Path, env=env)
 

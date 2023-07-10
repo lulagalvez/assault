@@ -5,7 +5,7 @@ from stable_baselines3.common.evaluation import evaluate_policy
 from stable_baselines3.common.env_util import make_atari_env
 import os
 
-learning_rate = 0.0008
+learning_rate = 0.0009
 
 
 env = make_atari_env("ALE/Assault-v5", n_envs=4, seed=0)
@@ -18,6 +18,6 @@ model = A2C('CnnPolicy', env, verbose=1, tensorboard_log=log_path, learning_rate
 
 model.learn(total_timesteps=500000) 
 
-A2C_Path = os.path.join('Training', 'Saved Models', 'a2c', 'A2C_LR_08_500k')
+A2C_Path = os.path.join('Training', 'Saved Models', 'a2c', 'LR_09_500k')
 
 model.save(A2C_Path)
