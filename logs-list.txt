@@ -17,5 +17,6 @@ New Logs:
     Log: A2C_6 - LR_05_G98_1M
     Log: A2C_7 - LR_05_EC01_500k
     Log: A2C_8 - LR0008_1M
+    Log: A2C_9 - LR0007_EC01
 
     Log: PPO_1 - PPO_LR00025_1M
