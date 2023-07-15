@@ -8,12 +8,20 @@ from stable_baselines3.common.env_util import make_atari_env
 import os
 import time
 
+_PPO = False
+N_FRAMES = 4
+
+MODEL_NAME = input("Enter name of model: ")
+
 env = make_atari_env("ALE/Assault-v5", n_envs=1, seed=0)
-env = VecFrameStack(env, n_stack=4)
+env = VecFrameStack(env, n_stack=N_FRAMES)
 
-a2c_path = os.path.join('Training', 'Saved Models','a2c', 'LR_05_G98_1M')
-
-model = A2C.load(a2c_path, env)
+if _PPO:
+    model_path = os.path.join('Training', 'Saved Models','ppo', MODEL_NAME)
+    model = PPO.load(model_path, env)
+else:
+    model_path = os.path.join('Training', 'Saved Models','a2c', MODEL_NAME)
+    model = A2C.load(model_path, env)
 
 obs = env.reset()
 while True:

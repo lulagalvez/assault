@@ -6,28 +6,42 @@ from stable_baselines3.common.evaluation import evaluate_policy
 from stable_baselines3.common.env_util import make_atari_env
 import os
 
-learning_rate = 0.0007
-gamma = 0.99
-ent_coef = 0.01
+# PPO = False si se desea utilizar A2C
+_PPO = False
+TIMESTEPS = 400_000
+MODEL_NAME = "A2C_400k_18"
+LEARNING_RATE = 0.0007
+GAMMA = 0.995
+ENT_COEF = 0.0
+VF_COEF = 0.5
+N_FRAMES = 4
 
-
-env = make_atari_env("ALE/Assault-v5", n_envs=4, seed=0)
-
-env = VecFrameStack(env, n_stack=4)
+env = make_atari_env("ALE/Assault-v5", n_envs=N_FRAMES, seed=0)
+env = VecFrameStack(env, n_stack=N_FRAMES)
 
 log_path = os.path.join('Training', 'Logs', 'new_logs')
 
-model = A2C('CnnPolicy', env,
-            verbose=1,
-            tensorboard_log=log_path,
-            learning_rate=learning_rate,
-            gamma=gamma,
-            ent_coef=ent_coef,
-            n_steps=5,
-            )
+if _PPO:
+    model = PPO('CnnPolicy', env,
+                verbose=1,
+                tensorboard_log=log_path,
+                learning_rate=LEARNING_RATE,
+                )
+else:
+    model = A2C('CnnPolicy', env,
+                verbose=1,
+                tensorboard_log=log_path,
+                learning_rate=LEARNING_RATE,
+                gamma=GAMMA,
+                ent_coef=ENT_COEF,
+                vf_coef=VF_COEF
+                )
 
-model.learn(total_timesteps=400000) 
+model.learn(total_timesteps=TIMESTEPS)
 
-model_path = os.path.join('Training', 'Saved Models', 'a2c', 'LR0007_EC001_400k')
+if _PPO:
+    model_path = os.path.join('Training', 'Saved Models', 'ppo', MODEL_NAME)
+else:
+    model_path = os.path.join('Training', 'Saved Models', 'a2c', MODEL_NAME)
 
 model.save(model_path)

@@ -63,10 +63,57 @@ PPO_LR00025_1M:
     n_steps = 10
     Result: (686.2, 40.58275495823318)
 
-10) LR0007_EC001_400k
+10) LR0007_EC001_400k ######### DEFUNCT #########                     
     Steps: 400.00
-    learning_rate = 0.0007
+    learning_rate = 0.0007                                  
     gamma = 0.99
     ent_coef = 0.01
     vf_coef = 0.5
     Result: (1222.8, 773.0918186088895)
+
+11) LR0007_EC001_400k
+    Steps: 400.000
+    learning_rate = 0.0007
+    gamma = 0.99
+    ent_coef = 0.01
+    vf_coef = 0.4
+    Result: (1743.2, 821.2526773167926)
+
+12) LR0007_VF04_400k
+    Steps: 400.000
+    learning_rate = 0.0007
+    gamma = 0.99
+    ent_coef = 0.0
+    vf_coef = 0.4
+    Result: (884.1, 389.6738251409761)
+
+13) LR0007_VF04_EC001_400k
+    Steps: 400.000
+    learning_rate = 0.0007
+    gamma = 0.99
+    ent_coef = 0.01
+    vf_coef = 0.4
+    Result: (1625.5, 1086.7471877120272)
+
+14) LR0007_VF04_EC001_1M
+    Steps: 1.000.000
+    learning_rate = 0.0007
+    gamma = 0.99
+    ent_coef = 0.01
+    vf_coef = 0.4
+    Result: (1310.9, 735.7603482112909)
+
+15) LR00065_VF04_EC001_400k
+    learning_rate = 0.0007
+    gae_lambda = 0.95
+    gamma = 0.99
+    ent_coef = 0.01
+    vf_coef = 0.4
+    Result: (863.1, 230.06801168350196)
+
+16) LR0008_VF04_EC001_400k
+    Steps: 400.000
+    learning_rate = 0.0008
+    gamma = 0.99
+    ent_coef = 0.01
+    vf_coef = 0.4
